@@ -27,10 +27,12 @@ export function initPalette({ scroll, theme }) {
   const open = (href) => () => window.open(href, '_blank', 'noopener');
 
   const commands = [
+    { label: 'Skills keyboard', hint: 'Section', run: go('#skills') },
     { label: 'Work', hint: 'Section', run: go('#work') },
     { label: 'Services', hint: 'Section', run: go('#services') },
-    { label: 'Process and tools', hint: 'Section', run: go('#process') },
+    { label: 'Process', hint: 'Section', run: go('#process') },
     { label: 'About', hint: 'Section', run: go('#about') },
+    { label: 'Creative corner', hint: 'Section', run: go('#creative') },
     { label: 'Contact', hint: 'Section', run: go('#contact') },
     { label: 'Back to top', hint: 'Section', run: go('#top') },
     { label: 'Switch colour theme', hint: 'Action', run: () => theme.toggle() },

@@ -1,9 +1,12 @@
-import { projects, disciplines } from '../data/projects.js';
+import { projects } from '../data/projects.js';
 
-// Builds the work list from js/data/projects.js, then wires up the three
-// behaviours around it: open/close, the discipline filter and the hover preview.
+// Builds the work list from js/data/projects.js, then wires up the behaviours
+// around it: opening a binder spread, the hover preview and the key filter.
 
 const pad = (n) => String(n).padStart(2, '0');
+
+const ARROW =
+  '<svg class="ico" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M4.5 11.5l7-7M5.5 4.5h6v6" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 
 function swatch(project, index) {
   const [bg, ink] = project.swatch;
@@ -34,18 +37,19 @@ function pieceTemplate(project, index) {
   const links = project.links
     .map(
       (link, i) =>
-        `<a class="btn${i === 0 ? ' btn--solid' : ''}" href="${link.href}" target="_blank" rel="noopener"><span>${link.label} ↗</span></a>`,
+        `<a class="btn${i === 0 ? ' btn--solid' : ''}" href="${link.href}" target="_blank" rel="noopener"><span>${link.label}</span>${ARROW}</a>`,
     )
     .join('');
 
   return `
-    <li class="piece" data-piece="${project.id}" data-tags="${project.tags.join(' ')}" data-reveal>
+    <li class="piece" data-piece="${project.id}" data-keys="${project.keys.join(' ')}" data-reveal>
       <h3>
         <button class="piece__row" type="button" aria-expanded="false" aria-controls="panel-${project.id}">
           <span class="label piece__no">${pad(index + 1)}</span>
           <span>
             <span class="display piece__name">${project.name}</span>
             <span class="piece__tag">${project.tagline}</span>
+            <span class="piece__pin label">uses your key</span>
           </span>
           <span class="label piece__kind">${project.kind}</span>
           <span class="label piece__year">${project.year}</span>
@@ -54,14 +58,19 @@ function pieceTemplate(project, index) {
       </h3>
       <div class="piece__panel" id="panel-${project.id}" inert>
         <div class="piece__clip">
-          <div class="piece__detail">
-            <div class="piece__media">${lead}</div>
-            <div class="piece__info">
+          <div class="piece__detail spread">
+            <div class="spread__page spread__page--left">
+              <span class="spread__no">Page ${pad(index + 1)}</span>
+              ${lead}
+            </div>
+            <div class="spread__rings" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+            <div class="spread__page spread__page--right">
+              <span class="spread__no">Notes</span>
               ${brief}
               <ul class="piece__built">${project.built.map((item) => `<li>${item}</li>`).join('')}</ul>
               <dl class="piece__spec">
                 <dt class="label">Role</dt><dd>${project.role}</dd>
-                <dt class="label">Composition</dt><dd>${project.stack.join(', ')}</dd>
+                <dt class="label">Built with</dt><dd>${project.stack.join(', ')}</dd>
               </dl>
               <div class="piece__links">${links}</div>
             </div>
@@ -90,35 +99,29 @@ function initAccordion(list) {
   });
 }
 
-function initFilters(list) {
-  const group = document.querySelector('[data-filters]');
+// Called by the keyboard. Pass a key id to light up the matching projects,
+// or nothing to clear. Returns how many projects matched.
+export function filterWork(keyId, name) {
+  const list = document.querySelector('[data-work-list]');
   const count = document.querySelector('[data-work-count]');
-  if (!group) return;
+  const status = document.querySelector('[data-work-filter]');
+  if (!list) return 0;
 
-  group.innerHTML = [{ id: 'all', label: 'All' }, ...disciplines]
-    .map(
-      (item) =>
-        `<button class="filter" type="button" data-filter="${item.id}" aria-pressed="${item.id === 'all'}">${item.label}</button>`,
-    )
-    .join('');
-
-  group.addEventListener('click', (event) => {
-    const button = event.target.closest('[data-filter]');
-    if (!button) return;
-    const active = button.dataset.filter;
-
-    group.querySelectorAll('[data-filter]').forEach((other) => {
-      other.setAttribute('aria-pressed', String(other === button));
-    });
-
-    let shown = 0;
-    list.querySelectorAll('.piece').forEach((piece) => {
-      const match = active === 'all' || piece.dataset.tags.split(' ').includes(active);
-      piece.classList.toggle('is-dim', !match);
-      if (match) shown += 1;
-    });
-    if (count) count.textContent = pad(shown);
+  let hits = 0;
+  list.querySelectorAll('.piece').forEach((piece) => {
+    const match = !keyId || piece.dataset.keys.split(' ').includes(keyId);
+    piece.classList.toggle('is-dim', !match);
+    piece.classList.toggle('is-hit', Boolean(keyId) && match);
+    if (match) hits += 1;
   });
+
+  if (count) count.textContent = pad(hits);
+  if (status) {
+    status.innerHTML = keyId
+      ? `Filtered by <strong>${name}</strong> <button type="button" data-clear-filter>Clear</button>`
+      : 'Showing everything. <a href="#skills">Press a key</a> to filter.';
+  }
+  return hits;
 }
 
 // A small card that trails the pointer while it is over the list.
@@ -203,6 +206,6 @@ export function initWork({ finePointer }) {
   list.innerHTML = projects.map(pieceTemplate).join('');
 
   initAccordion(list);
-  initFilters(list);
+  filterWork(null);
   if (finePointer) initPreview(list);
 }
