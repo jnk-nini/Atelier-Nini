@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nini Latagan — Full-stack developer</title>
+  <meta name="description" content="Atelier Nini is the portfolio of Jenny Joy “Nini” Latagan, a full-stack developer building web products end to end: interface, API, database and deploy.">
+  <meta name="theme-color" content="#E6DED5" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#1C0709" media="(prefers-color-scheme: dark)">
+  <meta property="og:title" content="Nini Latagan — Full-stack developer">
+  <meta property="og:description" content="Web products, cut to measure. Selected work, services and contact.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+  <link rel="preload" href="assets/fonts/bodoni-moda-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/instrument-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/site.css">
+
+  <script>
+    // Runs before first paint so the intro and reveal styles only apply when scripts work.
+    document.documentElement.classList.add('js');
+  </script>
+</head>
+<body>
+  <a class="skip" href="#work">Skip to work</a>
+
+  <div class="loader" aria-hidden="true">
+    <span class="loader__mark">Atelier <em>Nini</em></span>
+    <span class="loader__meta"><span>Collection 2026</span><span class="loader__count" data-loader-count>000</span></span>
+  </div>
+
+  <div class="progress" aria-hidden="true"><span data-progress></span></div>
+
+  <header class="nav" data-nav>
+    <a class="nav__mark" href="#top" aria-label="Atelier Nini, back to top">Atelier <em>Nini</em></a>
+    <nav class="nav__links" aria-label="Main">
+      <a href="#work" data-nav-link>Work</a>
+      <a href="#services" data-nav-link>Services</a>
+      <a href="#process" data-nav-link>Process</a>
+      <a href="#about" data-nav-link>About</a>
+      <a href="#contact" data-nav-link>Contact</a>
+    </nav>
+    <div class="nav__tools">
+      <button class="chip-btn" type="button" data-palette-open aria-haspopup="dialog">
+        <span class="chip-btn__wide">Jump to</span><span class="chip-btn__narrow">Menu</span>
+        <kbd data-shortcut>⌘K</kbd>
+      </button>
+      <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch colour theme">
+        <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><circle cx="10" cy="10" r="7.25" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M10 2.75a7.25 7.25 0 0 1 0 14.5z" fill="currentColor"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="hero__copy">
+        <p class="label hero__eyebrow" data-reveal>Nini Latagan <span class="sep">/</span> Full-stack developer</p>
+        <h1 id="heroTitle" class="display hero__title" data-split><span class="nowrap"><span data-kern="w">W</span>eb</span> products, <em>cut to measure.</em></h1>
+        <p class="lede hero__lede" data-reveal style="--d: 2">
+          I design, build and ship web apps end to end: the interface people touch,
+          the API behind it, the database underneath and the deploy that keeps it live.
+        </p>
+        <div class="hero__actions" data-reveal style="--d: 3">
+          <a class="btn btn--solid" href="#work" data-magnetic><span>See the work</span></a>
+          <a class="btn" href="#contact" data-magnetic><span>Start a project</span></a>
+        </div>
+      </div>
+
+      <figure class="print hero__print" data-reveal="print" style="--d: 2">
+        <div class="print__frame" data-portrait>
+          <img src="assets/img/nini-portrait.webp" width="616" height="616" alt="Portrait of Nini Latagan in a houndstooth blazer" fetchpriority="high">
+        </div>
+        <figcaption class="label"><span>Fig. 01</span><span>Nini, 2026</span></figcaption>
+        <span class="print__mark print__mark--tl" aria-hidden="true"></span>
+        <span class="print__mark print__mark--br" aria-hidden="true"></span>
+      </figure>
+
+      <dl class="hero__meta label" data-reveal style="--d: 4">
+        <div><dt>Status</dt><dd><span class="dot" aria-hidden="true"></span>Open to internships and freelance</dd></div>
+        <div><dt>Based in</dt><dd>Philippines, <span data-clock>UTC+8</span></dd></div>
+        <div><dt>Focus</dt><dd>React, Next.js, Python, PostgreSQL</dd></div>
+      </dl>
+    </section>
+
+    <!-- Numbers that are easy to verify in the repositories -->
+    <section class="proof" aria-label="At a glance">
+      <ul class="proof__list">
+        <li data-reveal><strong class="display">4</strong><span>projects live in production right now</span></li>
+        <li data-reveal style="--d: 1"><strong class="display">217</strong><span>automated tests across three codebases</span></li>
+        <li data-reveal style="--d: 2"><strong class="display">30</strong><span>functional requirements shipped in one booking system</span></li>
+        <li data-reveal style="--d: 3"><strong class="display">3</strong><span>separate products running on one API I built</span></li>
+      </ul>
+    </section>
+
+    <!-- Work -->
+    <section class="section work" id="work" aria-labelledby="workTitle">
+      <header class="section__head">
+        <p class="label" data-reveal><span class="num">01</span> Selected work</p>
+        <h2 id="workTitle" class="display" data-split>The <em>collection.</em></h2>
+        <p class="section__intro" data-reveal style="--d: 1">Six pieces, each built to be used. Open one for the brief, what I made and what it is made of.</p>
+      </header>
+
+      <div class="work__bar" data-reveal>
+        <div class="filters" role="group" aria-label="Filter work by discipline" data-filters></div>
+        <p class="label work__count" aria-live="polite"><span data-work-count>06</span> / 06 pieces</p>
+      </div>
+
+      <ol class="work__list" data-work-list></ol>
+      <noscript><p class="section__intro">The project list needs JavaScript. Everything is also on <a href="https://github.com/jnk-nini">GitHub</a>.</p></noscript>
+
+      <div class="preview" data-preview aria-hidden="true"><div class="preview__inner" data-preview-inner></div></div>
+    </section>
+
+    <!-- Services -->
+    <section class="section services" id="services" aria-labelledby="servicesTitle">
+      <header class="section__head">
+        <p class="label" data-reveal><span class="num">02</span> Services</p>
+        <h2 id="servicesTitle" class="display" data-split>Made <em>to order.</em></h2>
+        <p class="section__intro" data-reveal style="--d: 1">Pretty is nice. Working is better. This is where I am most useful.</p>
+      </header>
+
+      <ul class="services__list">
+        <li class="service" data-reveal>
+          <span class="label num">A</span>
+          <h3 class="display">Websites and landing pages</h3>
+          <p>Fast, responsive pages that say the right thing and hold up on every screen size.</p>
+          <p class="label service__for">For personal brands, small businesses, events</p>
+        </li>
+        <li class="service" data-reveal>
+          <span class="label num">B</span>
+          <h3 class="display">Full-stack web apps</h3>
+          <p>Front end, back end and database, from the login screen down to the last query.</p>
+          <p class="label service__for">For ideas that need accounts, data and real logic</p>
+        </li>
+        <li class="service" data-reveal>
+          <span class="label num">C</span>
+          <h3 class="display">Systems for teams</h3>
+          <p>Booking, records, inventory and tracking. The tools that replace the messy spreadsheet.</p>
+          <p class="label service__for">For schools, organisations, small shops</p>
+        </li>
+        <li class="service" data-reveal>
+          <span class="label num">D</span>
+          <h3 class="display">Design to code</h3>
+          <p>I sketch the screens first, then build them so the finished product matches the mockup.</p>
+          <p class="label service__for">For projects that need a designer's eye and a developer's hands</p>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Process -->
+    <section class="section process" id="process" aria-labelledby="processTitle">
+      <header class="section__head">
+        <p class="label" data-reveal><span class="num">03</span> Process</p>
+        <h2 id="processTitle" class="display" data-split>Four <em>fittings.</em></h2>
+        <p class="section__intro" data-reveal style="--d: 1">The same four steps, whatever the size of the project.</p>
+      </header>
+
+      <div class="process__track">
+        <span class="process__line" aria-hidden="true"></span>
+        <ol class="process__steps">
+          <li data-reveal>
+            <span class="label num">01</span>
+            <h3 class="display">Measure</h3>
+            <p>Understand the real problem and who it is for before touching any code.</p>
+          </li>
+          <li data-reveal style="--d: 1">
+            <span class="label num">02</span>
+            <h3 class="display">Draft</h3>
+            <p>Plan the screens and the data first, so we agree on the shape before I build.</p>
+          </li>
+          <li data-reveal style="--d: 2">
+            <span class="label num">03</span>
+            <h3 class="display">Construct</h3>
+            <p>Smallest useful version first, then features added in small, tested steps.</p>
+          </li>
+          <li data-reveal style="--d: 3">
+            <span class="label num">04</span>
+            <h3 class="display">Finish</h3>
+            <p>Details, speed, phones and accessibility, until nothing is there by accident.</p>
+          </li>
+        </ol>
+      </div>
+
+      <div class="toolbox">
+        <h3 class="label" data-reveal>Materials I work in</h3>
+        <dl class="toolbox__rows">
+          <div data-reveal><dt>Interface</dt><dd>React, Next.js, TypeScript, Tailwind CSS, HTML and CSS by hand</dd></div>
+          <div data-reveal><dt>Interactive</dt><dd>Three.js, React Three Fiber, WebGL shaders, D3, Leaflet</dd></div>
+          <div data-reveal><dt>Server</dt><dd>Python and FastAPI, Node.js, REST design, JWT and API-key auth</dd></div>
+          <div data-reveal><dt>Data</dt><dd>PostgreSQL, Supabase, Neon, SQL migrations, schema design</dd></div>
+          <div data-reveal><dt>Delivery</dt><dd>Git, GitHub Actions, Vercel, Vitest, Pytest, ESLint</dd></div>
+          <div data-reveal><dt>Design</dt><dd>UI design, digital illustration, Blender</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="section about" id="about" aria-labelledby="aboutTitle">
+      <header class="section__head">
+        <p class="label" data-reveal><span class="num">04</span> About</p>
+        <h2 id="aboutTitle" class="display" data-split>Soft on the surface, <em>sharp underneath.</em></h2>
+      </header>
+
+      <div class="about__grid">
+        <figure class="print about__print" data-reveal="print">
+          <div class="print__frame">
+            <img src="assets/img/nini-studio.webp" width="1024" height="1024" alt="Nini Latagan, studio portrait" loading="lazy">
+          </div>
+          <figcaption class="label"><span>Fig. 02</span><span>In the studio</span></figcaption>
+        </figure>
+
+        <div class="about__body">
+          <p class="lede" data-reveal>
+            I'm Jenny Joy, but everyone calls me Nini. I'm a third-year Computer Science student
+            specialising in Software Engineering, and I like building things that are pretty
+            <em>and</em> properly made.
+          </p>
+          <p data-reveal>
+            I learn fast and I notice the small things: the empty state nobody designed, the query that
+            runs twice, the button that is two pixels off. Most of what I ship is tested, documented
+            and deployed, because a project that only runs on my laptop is not finished.
+          </p>
+          <p data-reveal>
+            Off the keyboard I dance, draw (mostly digital) and make gifts by hand for people I love.
+          </p>
+
+          <dl class="facts">
+            <div data-reveal><dt class="label">Education</dt><dd>BS Computer Science, Software Engineering<br><span class="muted">2024 to 2028, Dean's Lister</span></dd></div>
+            <div data-reveal><dt class="label">Now</dt><dd>Building full-stack projects end to end<br><span class="muted">School, personal and team work</span></dd></div>
+            <div data-reveal><dt class="label">Next</dt><dd>An internship, then a full-time role<br><span class="muted">On a team that ships real things</span></dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section contact" id="contact" aria-labelledby="contactTitle">
+      <p class="label" data-reveal><span class="num">05</span> Contact</p>
+      <h2 id="contactTitle" class="display contact__title" data-split>Have something that should be <em>well made?</em></h2>
+      <p class="section__intro" data-reveal style="--d: 1">A project, an internship, or just a hello. I usually reply within a day or two.</p>
+
+      <ul class="contact__links" data-contact-links>
+        <li data-reveal><a href="https://github.com/jnk-nini" target="_blank" rel="noopener"><span class="label">GitHub</span><span class="contact__value">github.com/jnk-nini</span><span class="arrow" aria-hidden="true">↗</span></a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__row">
+      <p class="footer__colophon">
+        Set in Bodoni Moda and Instrument Sans. Written by hand in HTML, CSS and plain JavaScript,
+        no framework, no build step.
+        <a href="https://github.com/jnk-nini/Atelier-Nini" target="_blank" rel="noopener">Read the source</a>
+      </p>
+      <p class="label footer__meta"><span>© 2026 Jenny Joy F. Latagan</span><a href="#top">Back to top ↑</a></p>
+    </div>
+    <p class="footer__mark display" aria-hidden="true">Atelier <em>Nini</em></p>
+  </footer>
+
+  <dialog class="palette" data-palette aria-label="Jump to">
+    <div class="palette__field">
+      <input type="text" data-palette-input placeholder="Jump to a section or run a command" aria-label="Search commands" autocomplete="off" spellcheck="false">
+      <kbd>esc</kbd>
+    </div>
+    <ul class="palette__list" role="listbox" data-palette-list></ul>
+  </dialog>
+
+  <div class="toast label" role="status" aria-live="polite" data-toast></div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
