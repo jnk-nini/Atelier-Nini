@@ -1,12 +1,29 @@
 // The work list is rendered from this file. To add a project, add an entry here.
-// `tags` must use the ids from `disciplines` so the filter can find it.
+// `keys` must use ids from the `keys` list so the keyboard can find it.
 
-export const disciplines = [
-  { id: 'frontend', label: 'Front end' },
-  { id: 'backend', label: 'Back end' },
-  { id: 'data', label: 'Database' },
-  { id: '3d', label: '3D / WebGL' },
-  { id: 'testing', label: 'Tested' },
+// The keyboard in the Skills section. `id` is what projects list under `keys`.
+// x and y are the key's column and row on the board (6 by 3).
+export const keys = [
+  { id: 'react', label: 'React', name: 'React', x: 1, y: 0, tone: 'pink' },
+  { id: 'next', label: 'Next', name: 'Next.js', x: 2, y: 0, tone: 'sage' },
+  { id: 'ts', label: 'TS', name: 'TypeScript', x: 3, y: 0, tone: 'camel' },
+  { id: 'js', label: 'JS', name: 'plain JavaScript', x: 0, y: 1, tone: 'cream' },
+  { id: 'python', label: 'Py', name: 'Python', x: 1, y: 1, tone: 'rose' },
+  { id: 'sql', label: 'SQL', name: 'SQL', x: 2, y: 1, tone: 'olive' },
+  { id: 'webgl', label: '3D', name: '3D and WebGL', x: 3, y: 1, tone: 'cream' },
+  { id: 'tests', label: 'Tests', name: 'automated tests', x: 2, y: 2, w: 3, tone: 'pink' },
+];
+
+// Keys with no skill on them, there to finish the board.
+export const blankKeys = [
+  { x: 0, y: 0, tone: 'wine', star: true },
+  { x: 4, y: 0, tone: 'moss' },
+  { x: 5, y: 0, tone: 'cream' },
+  { x: 4, y: 1, tone: 'pink', star: true },
+  { x: 5, y: 1, tone: 'sage' },
+  { x: 0, y: 2, tone: 'camel' },
+  { x: 1, y: 2, tone: 'wine' },
+  { x: 5, y: 2, tone: 'rose' },
 ];
 
 export const projects = [
@@ -17,7 +34,7 @@ export const projects = [
     kind: 'Full-stack app',
     year: '2026',
     role: 'Team project, Software Engineering',
-    tags: ['frontend', 'backend', 'data'],
+    keys: ['react', 'next', 'ts', 'sql'],
     images: [{ src: 'assets/img/reserba-cover.webp', w: 1200, h: 630, alt: 'ReserBa cover: The clubhouse, the court, and the pool. Reserved properly.' }],
     swatch: ['#1f3d2c', '#efe6d6'],
     brief:
@@ -38,7 +55,7 @@ export const projects = [
     kind: 'API and database',
     year: '2026',
     role: 'Design, build, deploy',
-    tags: ['backend', 'data', 'testing'],
+    keys: ['python', 'sql', 'tests'],
     images: [],
     sample: {
       label: 'A real request',
@@ -85,7 +102,7 @@ x-api-key: ********
     kind: 'Interactive 3D',
     year: '2026',
     role: 'Design, build, deploy',
-    tags: ['frontend', '3d', 'testing'],
+    keys: ['react', 'webgl', 'tests'],
     images: [
       { src: 'assets/img/impactor-impact.webp', w: 1280, h: 800, alt: 'Impactor mid-simulation: an asteroid striking the surface' },
       { src: 'assets/img/impactor-results.webp', w: 1280, h: 800, alt: 'Impactor results panel with crater size, energy and damage zones' },
@@ -112,7 +129,7 @@ x-api-key: ********
     kind: 'Mobile-first app',
     year: '2026',
     role: 'Design, build, deploy',
-    tags: ['frontend', 'testing'],
+    keys: ['react', 'tests'],
     images: [
       { src: 'assets/img/neo-atlas-cover.webp', w: 1200, h: 630, alt: 'NEO Atlas cover: near-Earth asteroids, charted like stars' },
       { src: 'assets/img/neo-atlas-chart.webp', w: 1280, h: 800, alt: 'NEO Atlas star chart with an asteroid detail card open' },
@@ -139,7 +156,7 @@ x-api-key: ********
     kind: 'Web app, in progress',
     year: '2026',
     role: 'Design and build',
-    tags: ['frontend', 'data', 'testing'],
+    keys: ['react', 'ts', 'sql', 'tests'],
     images: [],
     swatch: ['#575527', '#f3eee8'],
     brief:
@@ -160,7 +177,7 @@ x-api-key: ********
     kind: 'PWA suite',
     year: '2026',
     role: 'Design, build, deploy',
-    tags: ['frontend'],
+    keys: ['js'],
     images: [],
     swatch: ['#b97d7b', '#2b0e13'],
     brief:
