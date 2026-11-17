@@ -50,6 +50,20 @@
   --line-strong: rgb(43 14 19 / 0.42);
   --on-solid: #f6efe7;
 
+  /* Lily and leaves in the hero */
+  --petal-core: #e3e2a0;
+  --petal-a: #fff3ef;
+  --petal-b: #f4bbc2;
+  --petal-edge: #d9808f;
+  --spot: #a53a57;
+
+  /* The skills stage stays dark in both themes */
+  --stage: #2a0d12;
+  --stage-ink: #eadbd0;
+  --stage-accent: #f3c9c8;
+  --board: #3e1b21;
+  --board-edge: #5a2a31;
+
   --serif: "Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
   --sans: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
   --mono: "DM Mono", ui-monospace, "SF Mono", Menlo, monospace;
@@ -58,7 +72,7 @@
   --section: clamp(6rem, 14vw, 12rem);
   --max: 96rem;
 
-  --ease: cubic-bezier(0.22, 0.8, 0.2, 1);
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-io: cubic-bezier(0.65, 0, 0.2, 1);
   --fast: 180ms;
   --base: 420ms;
@@ -79,6 +93,14 @@
     --line: rgb(229 217 201 / 0.16);
     --line-strong: rgb(229 217 201 / 0.42);
     --on-solid: #1c0709;
+    --petal-core: #b7a56b;
+    --petal-a: #e7b3b0;
+    --petal-b: #b5606c;
+    --petal-edge: #7a2c3a;
+    --spot: #3e0911;
+    --stage: #120405;
+    --board: #2a0f14;
+    --board-edge: #4a1d25;
   }
 }
 :root[data-theme="dark"] {
@@ -94,6 +116,14 @@
   --line: rgb(229 217 201 / 0.16);
   --line-strong: rgb(229 217 201 / 0.42);
   --on-solid: #1c0709;
+    --petal-core: #b7a56b;
+    --petal-a: #e7b3b0;
+    --petal-b: #b5606c;
+    --petal-edge: #7a2c3a;
+    --spot: #3e0911;
+    --stage: #120405;
+    --board: #2a0f14;
+    --board-edge: #4a1d25;
 }
 
 *,
@@ -105,6 +135,9 @@
 html {
   -webkit-text-size-adjust: 100%;
   scroll-padding-top: 5rem;
+  scrollbar-color: var(--line-strong) transparent;
+  accent-color: var(--accent);
+  caret-color: var(--accent);
 }
 @media (prefers-reduced-motion: no-preference) {
   html:not(.lenis) {
@@ -120,18 +153,6 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   overflow-x: clip;
-}
-
-/* Paper grain. One fixed layer, cheap to composite. */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 100;
-  pointer-events: none;
-  opacity: 0.22;
-  mix-blend-mode: soft-light;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .5 0 0 0 0 .5 0 0 0 0 .5 0 0 0 .9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 img,
@@ -179,6 +200,8 @@ button {
   border: 0;
   padding: 0;
   cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
 :focus-visible {
@@ -208,18 +231,15 @@ button {
 }
 
 .label {
-  font: 400 0.72rem/1.4 var(--mono);
-  letter-spacing: 0.09em;
+  font: 500 0.74rem/1.4 var(--sans);
+  letter-spacing: 0.07em;
   text-transform: uppercase;
   color: var(--ink-soft);
 }
-.label .num {
-  color: var(--accent);
-  margin-right: 0.9em;
-}
-.label .sep {
-  margin: 0 0.6em;
-  opacity: 0.5;
+.ico {
+  display: inline-block;
+  flex: none;
+  vertical-align: -0.12em;
 }
 
 .lede {
@@ -285,8 +305,8 @@ kbd {
   transform: translateY(101%);
   transition: transform var(--base) var(--ease);
 }
-.btn span {
-  display: inline-block;
+.btn {
+  gap: 0.5rem;
 }
 .btn--solid {
   background: var(--accent);
@@ -309,8 +329,8 @@ kbd {
 .icon-btn {
   display: grid;
   place-items: center;
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2.75rem;
+  height: 2.75rem;
   border-radius: 50%;
   border: 1px solid var(--line);
   transition: border-color var(--fast), rotate var(--slow) var(--ease);
@@ -321,12 +341,24 @@ kbd {
 :root[data-theme="dark"] .icon-btn[data-theme-toggle] {
   rotate: 180deg;
 }
+[data-sound-toggle] .sound-on,
+[data-sound-toggle][aria-pressed="true"] .sound-off {
+  display: none;
+}
+[data-sound-toggle][aria-pressed="true"] .sound-on {
+  display: inline;
+}
+[data-sound-toggle][aria-pressed="true"] {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--bg);
+}
 
 .chip-btn {
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  height: 2.5rem;
+  height: 2.75rem;
   padding: 0 0.6rem 0 0.95rem;
   border: 1px solid var(--line);
   border-radius: 999px;
@@ -369,7 +401,8 @@ kbd {
   transition: scale 1600ms var(--ease) calc(var(--d, 0) * 90ms);
 }
 .js [data-reveal="print"] figcaption,
-.js [data-reveal="print"] .print__mark {
+.js [data-reveal="print"] .tape,
+.js [data-reveal="print"] .palette-card {
   opacity: 0;
   transition: opacity var(--slow) var(--ease) 700ms;
 }
@@ -380,7 +413,8 @@ kbd {
   scale: 1;
 }
 .js [data-reveal="print"].is-in figcaption,
-.js [data-reveal="print"].is-in .print__mark {
+.js [data-reveal="print"].is-in .tape,
+.js [data-reveal="print"].is-in .palette-card {
   opacity: 1;
 }
 

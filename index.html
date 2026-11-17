@@ -35,6 +35,7 @@
   <header class="nav" data-nav>
     <a class="nav__mark" href="#top" aria-label="Atelier Nini, back to top">Atelier <em>Nini</em></a>
     <nav class="nav__links" aria-label="Main">
+      <a href="#skills" data-nav-link>Skills</a>
       <a href="#work" data-nav-link>Work</a>
       <a href="#services" data-nav-link>Services</a>
       <a href="#process" data-nav-link>Process</a>
@@ -46,6 +47,9 @@
         <span class="chip-btn__wide">Jump to</span><span class="chip-btn__narrow">Menu</span>
         <kbd data-shortcut>⌘K</kbd>
       </button>
+      <button class="icon-btn" type="button" data-sound-toggle aria-pressed="false" aria-label="Key sounds">
+        <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8v4h2.8L10 15V5L6.3 8z"/><path class="sound-on" d="M13 7.5a3.5 3.5 0 0 1 0 5M15.2 5.3a6.6 6.6 0 0 1 0 9.4"/><path class="sound-off" d="M13.5 8l3.5 4M17 8l-3.5 4"/></svg>
+      </button>
       <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch colour theme">
         <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><circle cx="10" cy="10" r="7.25" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M10 2.75a7.25 7.25 0 0 1 0 14.5z" fill="currentColor"/></svg>
       </button>
@@ -55,16 +59,57 @@
   <main id="top">
     <!-- Hero -->
     <section class="hero" aria-labelledby="heroTitle">
+      <div class="hero__flora" aria-hidden="true">
+      <div class="lily-wrap">
+        <svg class="lily" viewBox="0 0 800 800">
+          <defs>
+            <linearGradient id="gPetal" x1="0" y1="0" x2="0" y2="-330" gradientUnits="userSpaceOnUse">
+              <stop offset="0" style="stop-color: var(--petal-core)"/>
+              <stop offset=".18" style="stop-color: var(--petal-a)"/>
+              <stop offset=".7" style="stop-color: var(--petal-b)"/>
+              <stop offset="1" style="stop-color: var(--petal-edge)"/>
+            </linearGradient>
+            <g id="pt" transform="translate(400 400)">
+              <path d="M0 0 C-64 -64 -104 -200 -22 -328 Q0 -352 22 -328 C104 -200 64 -64 0 0Z" fill="url(#gPetal)"/>
+              <path d="M0 -18 C3 -120 -3 -230 0 -310" stroke="rgba(255,255,255,.55)" stroke-width="7" fill="none" stroke-linecap="round"/>
+              <path d="M-14 -40 C-30 -120 -34 -200 -14 -290 M14 -40 C30 -120 34 -200 14 -290" stroke="rgba(255,255,255,.25)" stroke-width="3" fill="none"/>
+              <g style="fill: var(--spot)" opacity=".85">
+                <circle cx="-12" cy="-70" r="3.5"/><circle cx="14" cy="-86" r="4"/><circle cx="-28" cy="-104" r="3"/><circle cx="30" cy="-120" r="3.6"/>
+                <circle cx="-8" cy="-134" r="4.2"/><circle cx="-34" cy="-150" r="3"/><circle cx="22" cy="-160" r="3.4"/><circle cx="2" cy="-186" r="3.8"/>
+                <circle cx="-26" cy="-196" r="2.8"/><circle cx="30" cy="-200" r="3"/><circle cx="-10" cy="-228" r="3.4"/><circle cx="14" cy="-240" r="2.6"/>
+              </g>
+            </g>
+          </defs>
+          <use class="petal" href="#pt" style="--r:0deg; --i:0"/>
+          <use class="petal" href="#pt" style="--r:120deg; --i:2"/>
+          <use class="petal" href="#pt" style="--r:240deg; --i:4"/>
+          <use class="petal" href="#pt" style="--r:60deg; --i:1" opacity=".96"/>
+          <use class="petal" href="#pt" style="--r:180deg; --i:3" opacity=".96"/>
+          <use class="petal" href="#pt" style="--r:300deg; --i:5" opacity=".96"/>
+          <g class="stamens">
+            <g transform="rotate(-48 400 400)"><path d="M400 400 Q394 330 404 258" stroke="#E7D8B1" stroke-width="5" fill="none" stroke-linecap="round"/><ellipse cx="405" cy="246" rx="9" ry="27" fill="#B5522E"/></g>
+            <g transform="rotate(-26 400 400)"><path d="M400 400 Q396 320 402 236" stroke="#E7D8B1" stroke-width="5" fill="none" stroke-linecap="round"/><ellipse cx="403" cy="224" rx="9" ry="28" fill="#A84626"/></g>
+            <g transform="rotate(4 400 400)"><path d="M400 400 Q404 316 400 228" stroke="#E7D8B1" stroke-width="5" fill="none" stroke-linecap="round"/><ellipse cx="400" cy="216" rx="9" ry="28" fill="#B5522E"/></g>
+            <g transform="rotate(30 400 400)"><path d="M400 400 Q398 324 404 244" stroke="#E7D8B1" stroke-width="5" fill="none" stroke-linecap="round"/><ellipse cx="405" cy="232" rx="9" ry="27" fill="#A84626"/></g>
+            <g transform="rotate(54 400 400)"><path d="M400 400 Q392 336 402 264" stroke="#E7D8B1" stroke-width="5" fill="none" stroke-linecap="round"/><ellipse cx="404" cy="252" rx="9" ry="26" fill="#B5522E"/></g>
+            <g transform="rotate(-8 400 400)"><path d="M400 400 Q412 320 410 224" stroke="#E9B6BE" stroke-width="6" fill="none" stroke-linecap="round"/><ellipse cx="410" cy="214" rx="11" ry="14" fill="#D4577C"/></g>
+          </g>
+        </svg>
+      </div>
+      </div>
+      <canvas class="hero__pearls" data-pearls aria-hidden="true"></canvas>
+
+      <div class="hero__inner">
       <div class="hero__copy">
-        <p class="label hero__eyebrow" data-reveal>Nini Latagan <span class="sep">/</span> Full-stack developer</p>
         <h1 id="heroTitle" class="display hero__title" data-split><span class="nowrap"><span data-kern="w">W</span>eb</span> products, <em>cut to measure.</em></h1>
         <p class="lede hero__lede" data-reveal style="--d: 2">
-          I design, build and ship web apps end to end: the interface people touch,
-          the API behind it, the database underneath and the deploy that keeps it live.
+          I'm Nini Latagan, a full-stack developer. I design, build and ship web apps end to end:
+          the interface people touch, the API behind it, the database underneath and the deploy
+          that keeps it live.
         </p>
         <div class="hero__actions" data-reveal style="--d: 3">
-          <a class="btn btn--solid" href="#work" data-magnetic><span>See the work</span></a>
-          <a class="btn" href="#contact" data-magnetic><span>Start a project</span></a>
+          <a class="btn btn--solid" href="#work"><span>See the work</span></a>
+          <a class="btn" href="#contact"><span>Start a project</span></a>
         </div>
       </div>
 
@@ -73,8 +118,11 @@
           <img src="assets/img/nini-portrait.webp" width="616" height="616" alt="Portrait of Nini Latagan in a houndstooth blazer" fetchpriority="high">
         </div>
         <figcaption class="label"><span>Fig. 01</span><span>Nini, 2026</span></figcaption>
-        <span class="print__mark print__mark--tl" aria-hidden="true"></span>
-        <span class="print__mark print__mark--br" aria-hidden="true"></span>
+        <span class="tape" aria-hidden="true"></span>
+        <div class="palette-card" aria-hidden="true">
+          <div class="palette-card__chips"><i style="background:#DDD3C9"></i><i style="background:#ECC4C3"></i><i style="background:#B97D7B"></i><i style="background:#928E5E"></i><i style="background:#575527"></i></div>
+          <b>Palette 01</b>Warm Fog to Soldier Green
+        </div>
       </figure>
 
       <dl class="hero__meta label" data-reveal style="--d: 4">
@@ -82,28 +130,56 @@
         <div><dt>Based in</dt><dd>Philippines, <span data-clock>UTC+8</span></dd></div>
         <div><dt>Focus</dt><dd>React, Next.js, Python, PostgreSQL</dd></div>
       </dl>
+      </div>
     </section>
 
-    <!-- Numbers that are easy to verify in the repositories -->
+    <!-- One sentence of proof. Every figure can be checked in the repositories. -->
     <section class="proof" aria-label="At a glance">
-      <ul class="proof__list">
-        <li data-reveal><strong class="display">4</strong><span>projects live in production right now</span></li>
-        <li data-reveal style="--d: 1"><strong class="display">217</strong><span>automated tests across three codebases</span></li>
-        <li data-reveal style="--d: 2"><strong class="display">30</strong><span>functional requirements shipped in one booking system</span></li>
-        <li data-reveal style="--d: 3"><strong class="display">3</strong><span>separate products running on one API I built</span></li>
-      </ul>
+      <p class="proof__line display">
+        Four projects live in production, <em>217 automated tests</em> behind them, and one API of
+        mine running three separate products.
+      </p>
+    </section>
+
+    <!-- Skills: every key filters the work list below -->
+    <section class="stage" id="skills" aria-labelledby="skillsTitle">
+      <span class="stage__ghost" aria-hidden="true">skills</span>
+      <div class="stage__inner">
+        <div class="stage__copy">
+          <h2 id="skillsTitle" class="display">Press a <em>key.</em></h2>
+          <p class="stage__intro">Every key is something I build with. Press one and the matching projects light up in the binder below. Press it again to clear.</p>
+          <p class="stage__status" role="status" aria-live="polite" data-key-status></p>
+        </div>
+
+        <div class="kb-scene">
+          <div class="kb-tilt" data-kb-tilt>
+            <div class="kb" role="group" aria-label="Skill keys. Press a key to filter the work list." data-kb></div>
+          </div>
+        </div>
+
+        <div class="toolbox">
+          <h3 class="label">The full toolbox</h3>
+          <dl class="toolbox__rows">
+            <div><dt>Interface</dt><dd>React, Next.js, TypeScript, Tailwind CSS, HTML and CSS by hand</dd></div>
+            <div><dt>Interactive</dt><dd>Three.js, React Three Fiber, WebGL shaders, D3, Leaflet</dd></div>
+            <div><dt>Server</dt><dd>Python and FastAPI, Node.js, REST design, JWT and API-key auth</dd></div>
+            <div><dt>Data</dt><dd>PostgreSQL, Supabase, Neon, SQL migrations, schema design</dd></div>
+            <div><dt>Delivery</dt><dd>Git, GitHub Actions, Vercel, Vitest, Pytest, ESLint</dd></div>
+            <div><dt>Design</dt><dd>UI design, digital illustration, Blender</dd></div>
+          </dl>
+        </div>
+      </div>
     </section>
 
     <!-- Work -->
     <section class="section work" id="work" aria-labelledby="workTitle">
       <header class="section__head">
-        <p class="label" data-reveal><span class="num">01</span> Selected work</p>
-        <h2 id="workTitle" class="display" data-split>The <em>collection.</em></h2>
-        <p class="section__intro" data-reveal style="--d: 1">Six pieces, each built to be used. Open one for the brief, what I made and what it is made of.</p>
+        <h2 id="workTitle" class="display">Pinned to the <em>page.</em></h2>
+        <p class="section__intro">Six pieces, each built to be used. Open one and its page of the binder unfolds: the brief, what I made and what it is made of.</p>
       </header>
 
-      <div class="work__bar" data-reveal>
-        <div class="filters" role="group" aria-label="Filter work by discipline" data-filters></div>
+      <div class="work__bar">
+        <p class="work__filter label" data-work-filter></p>
         <p class="label work__count" aria-live="polite"><span data-work-count>06</span> / 06 pieces</p>
       </div>
 
@@ -116,32 +192,31 @@
     <!-- Services -->
     <section class="section services" id="services" aria-labelledby="servicesTitle">
       <header class="section__head">
-        <p class="label" data-reveal><span class="num">02</span> Services</p>
-        <h2 id="servicesTitle" class="display" data-split>Made <em>to order.</em></h2>
-        <p class="section__intro" data-reveal style="--d: 1">Pretty is nice. Working is better. This is where I am most useful.</p>
+        <h2 id="servicesTitle" class="display">Made <em>to order.</em></h2>
+        <p class="section__intro">Pretty is nice. Working is better. This is where I am most useful.</p>
       </header>
 
       <ul class="services__list">
-        <li class="service" data-reveal>
-          <span class="label num">A</span>
+        <li class="service">
+          <span class="service__mark">A</span>
           <h3 class="display">Websites and landing pages</h3>
           <p>Fast, responsive pages that say the right thing and hold up on every screen size.</p>
           <p class="label service__for">For personal brands, small businesses, events</p>
         </li>
-        <li class="service" data-reveal>
-          <span class="label num">B</span>
+        <li class="service">
+          <span class="service__mark">B</span>
           <h3 class="display">Full-stack web apps</h3>
           <p>Front end, back end and database, from the login screen down to the last query.</p>
           <p class="label service__for">For ideas that need accounts, data and real logic</p>
         </li>
-        <li class="service" data-reveal>
-          <span class="label num">C</span>
+        <li class="service">
+          <span class="service__mark">C</span>
           <h3 class="display">Systems for teams</h3>
           <p>Booking, records, inventory and tracking. The tools that replace the messy spreadsheet.</p>
           <p class="label service__for">For schools, organisations, small shops</p>
         </li>
-        <li class="service" data-reveal>
-          <span class="label num">D</span>
+        <li class="service">
+          <span class="service__mark">D</span>
           <h3 class="display">Design to code</h3>
           <p>I sketch the screens first, then build them so the finished product matches the mockup.</p>
           <p class="label service__for">For projects that need a designer's eye and a developer's hands</p>
@@ -152,30 +227,29 @@
     <!-- Process -->
     <section class="section process" id="process" aria-labelledby="processTitle">
       <header class="section__head">
-        <p class="label" data-reveal><span class="num">03</span> Process</p>
-        <h2 id="processTitle" class="display" data-split>Four <em>fittings.</em></h2>
-        <p class="section__intro" data-reveal style="--d: 1">The same four steps, whatever the size of the project.</p>
+        <h2 id="processTitle" class="display">How I <em>work.</em></h2>
+        <p class="section__intro">The same four steps, whatever the size of the project.</p>
       </header>
 
       <div class="process__track">
         <span class="process__line" aria-hidden="true"></span>
         <ol class="process__steps">
-          <li data-reveal>
+          <li>
             <span class="label num">01</span>
             <h3 class="display">Measure</h3>
             <p>Understand the real problem and who it is for before touching any code.</p>
           </li>
-          <li data-reveal style="--d: 1">
+          <li>
             <span class="label num">02</span>
             <h3 class="display">Draft</h3>
             <p>Plan the screens and the data first, so we agree on the shape before I build.</p>
           </li>
-          <li data-reveal style="--d: 2">
+          <li>
             <span class="label num">03</span>
             <h3 class="display">Construct</h3>
             <p>Smallest useful version first, then features added in small, tested steps.</p>
           </li>
-          <li data-reveal style="--d: 3">
+          <li>
             <span class="label num">04</span>
             <h3 class="display">Finish</h3>
             <p>Details, speed, phones and accessibility, until nothing is there by accident.</p>
@@ -183,28 +257,16 @@
         </ol>
       </div>
 
-      <div class="toolbox">
-        <h3 class="label" data-reveal>Materials I work in</h3>
-        <dl class="toolbox__rows">
-          <div data-reveal><dt>Interface</dt><dd>React, Next.js, TypeScript, Tailwind CSS, HTML and CSS by hand</dd></div>
-          <div data-reveal><dt>Interactive</dt><dd>Three.js, React Three Fiber, WebGL shaders, D3, Leaflet</dd></div>
-          <div data-reveal><dt>Server</dt><dd>Python and FastAPI, Node.js, REST design, JWT and API-key auth</dd></div>
-          <div data-reveal><dt>Data</dt><dd>PostgreSQL, Supabase, Neon, SQL migrations, schema design</dd></div>
-          <div data-reveal><dt>Delivery</dt><dd>Git, GitHub Actions, Vercel, Vitest, Pytest, ESLint</dd></div>
-          <div data-reveal><dt>Design</dt><dd>UI design, digital illustration, Blender</dd></div>
-        </dl>
-      </div>
     </section>
 
     <!-- About -->
     <section class="section about" id="about" aria-labelledby="aboutTitle">
       <header class="section__head">
-        <p class="label" data-reveal><span class="num">04</span> About</p>
-        <h2 id="aboutTitle" class="display" data-split>Soft on the surface, <em>sharp underneath.</em></h2>
+        <h2 id="aboutTitle" class="display">Soft on the surface, <em>sharp underneath.</em></h2>
       </header>
 
       <div class="about__grid">
-        <figure class="print about__print" data-reveal="print">
+        <figure class="print about__print">
           <div class="print__frame">
             <img src="assets/img/nini-studio.webp" width="1024" height="1024" alt="Nini Latagan, studio portrait" loading="lazy">
           </div>
@@ -212,37 +274,49 @@
         </figure>
 
         <div class="about__body">
-          <p class="lede" data-reveal>
+          <p class="lede">
             I'm Jenny Joy, but everyone calls me Nini. I'm a third-year Computer Science student
             specialising in Software Engineering, and I like building things that are pretty
             <em>and</em> properly made.
           </p>
-          <p data-reveal>
+          <p>
             I learn fast and I notice the small things: the empty state nobody designed, the query that
             runs twice, the button that is two pixels off. Most of what I ship is tested, documented
             and deployed, because a project that only runs on my laptop is not finished.
           </p>
-          <p data-reveal>
-            Off the keyboard I dance, draw (mostly digital) and make gifts by hand for people I love.
+          <p>
+            Off the keyboard I dance, draw (mostly digital) and make gifts by hand for people I love. Those have their own rooms just below.
           </p>
 
           <dl class="facts">
-            <div data-reveal><dt class="label">Education</dt><dd>BS Computer Science, Software Engineering<br><span class="muted">2024 to 2028, Dean's Lister</span></dd></div>
-            <div data-reveal><dt class="label">Now</dt><dd>Building full-stack projects end to end<br><span class="muted">School, personal and team work</span></dd></div>
-            <div data-reveal><dt class="label">Next</dt><dd>An internship, then a full-time role<br><span class="muted">On a team that ships real things</span></dd></div>
+            <div><dt class="label">Education</dt><dd>BS Computer Science, Software Engineering<br><span class="muted">2024 to 2028, Dean's Lister</span></dd></div>
+            <div><dt class="label">Now</dt><dd>Building full-stack projects end to end<br><span class="muted">School, personal and team work</span></dd></div>
+            <div><dt class="label">Next</dt><dd>An internship, then a full-time role<br><span class="muted">On a team that ships real things</span></dd></div>
           </dl>
         </div>
       </div>
     </section>
 
+    <!-- Creative corner -->
+    <section class="section creative" id="creative" aria-labelledby="creativeTitle">
+      <header class="section__head">
+        <h2 id="creativeTitle" class="display">Three little <em>rooms.</em></h2>
+        <p class="section__intro">Hover or tap a room to open it.</p>
+      </header>
+      <div class="rooms" data-rooms>
+        <button class="room room-1 open" type="button" aria-expanded="true"><span class="art"><svg viewBox="0 0 600 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><path class="draw" pathLength="1" style="--i:0" d="M-20 360 C120 280 160 100 300 150 S420 410 620 220"/><path class="draw thin" pathLength="1" style="--i:1" d="M-20 400 C140 320 200 160 320 210 S440 430 620 280"/><path class="draw thin" pathLength="1" style="--i:2" d="M-20 440 C160 360 240 220 340 270 S460 450 620 340"/><path class="draw thin" pathLength="1" style="--i:3" d="M230 96 a54 54 0 1 1 -.1 0"/><path class="pop" style="--i:0" d="M230 124 l5.7 20.3 l20.3 5.7 l-20.3 5.7 l-5.7 20.3 l-5.7 -20.3 l-20.3 -5.7 l20.3 -5.7 z"/><path class="pop" style="--i:1" d="M470 104 l3.5 12.5 l12.5 3.5 l-12.5 3.5 l-3.5 12.5 l-3.5 -12.5 l-12.5 -3.5 l12.5 -3.5 z"/><path class="pop" style="--i:2" d="M120 218 l2.6 9.4 l9.4 2.6 l-9.4 2.6 l-2.6 9.4 l-2.6 -9.4 l-9.4 -2.6 l9.4 -2.6 z"/><path class="pop" style="--i:3" d="M520 380 l4.4 15.6 l15.6 4.4 l-15.6 4.4 l-4.4 15.6 l-4.4 -15.6 l-15.6 -4.4 l15.6 -4.4 z"/></svg></span><span class="shade"></span><span class="rn">01</span><span class="rt"><strong>Dance</strong><span>Rehearsal clips and choreography notes. Moving in soon.</span></span></button>
+        <button class="room room-2" type="button" aria-expanded="false"><span class="art"><svg viewBox="0 0 600 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><path class="draw" pathLength="1" style="--i:0" d="M70 380 C150 110 350 110 410 290 S550 380 550 170"/><path class="draw thin" pathLength="1" style="--i:1" d="M70 380 L150 110"/><path class="draw thin" pathLength="1" style="--i:2" d="M410 290 L350 110"/><path class="draw thin" pathLength="1" style="--i:2" d="M410 290 L470 470"/><path class="draw thin" pathLength="1" style="--i:3" d="M550 170 L550 60"/><path class="draw" pathLength="1" style="--i:1" d="M60 370 h20 v20 h-20z"/><path class="draw" pathLength="1" style="--i:2" d="M400 280 h20 v20 h-20z"/><path class="draw" pathLength="1" style="--i:3" d="M540 160 h20 v20 h-20z"/><path class="draw thin" pathLength="1" style="--i:2" d="M150 110 m-8 0 a8 8 0 1 0 16 0 a8 8 0 1 0 -16 0"/><path class="draw thin" pathLength="1" style="--i:3" d="M350 110 m-8 0 a8 8 0 1 0 16 0 a8 8 0 1 0 -16 0"/><path class="draw thin" pathLength="1" style="--i:4" d="M40 40 h50 M40 40 v50 M560 460 h-50 M560 460 v-50"/><path class="pop" style="--i:0" d="M250 180 l4.4 15.6 l15.6 4.4 l-15.6 4.4 l-4.4 15.6 l-4.4 -15.6 l-15.6 -4.4 l15.6 -4.4 z"/><path class="pop" style="--i:2" d="M480 317 l2.9 10.1 l10.1 2.9 l-10.1 2.9 l-2.9 10.1 l-2.9 -10.1 l-10.1 -2.9 l10.1 -2.9 z"/></svg></span><span class="shade"></span><span class="rn">02</span><span class="rt"><strong>Digital art</strong><span>Sketches, characters and doodles from my tablet. Moving in soon.</span></span></button>
+        <button class="room room-3" type="button" aria-expanded="false"><span class="art"><svg viewBox="0 0 600 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><path class="draw" pathLength="1" style="--i:0" d="M190 230 h220 v42 h-220z"/><path class="draw" pathLength="1" style="--i:1" d="M206 272 h188 v150 h-188z"/><path class="draw thin" pathLength="1" style="--i:2" d="M300 230 v192"/><path class="draw" pathLength="1" style="--i:2" d="M300 230 C250 160 190 190 226 226 C250 248 286 236 300 230 C350 160 410 190 374 226 C350 248 314 236 300 230"/><path class="draw thin" pathLength="1" style="--i:3" d="M300 230 C282 250 270 264 262 286 M300 230 C318 250 330 264 338 286"/><path class="pop" style="--i:0" d="M130 128 l4.8 17.2 l17.2 4.8 l-17.2 4.8 l-4.8 17.2 l-4.8 -17.2 l-17.2 -4.8 l17.2 -4.8 z"/><path class="pop" style="--i:1" d="M480 115 l3.3 11.7 l11.7 3.3 l-11.7 3.3 l-3.3 11.7 l-3.3 -11.7 l-11.7 -3.3 l11.7 -3.3 z"/><path class="pop" style="--i:2" d="M500 306 l5.3 18.7 l18.7 5.3 l-18.7 5.3 l-5.3 18.7 l-5.3 -18.7 l-18.7 -5.3 l18.7 -5.3 z"/><path class="pop" style="--i:3" d="M110 367 l2.9 10.1 l10.1 2.9 l-10.1 2.9 l-2.9 10.1 l-2.9 -10.1 l-10.1 -2.9 l10.1 -2.9 z"/></svg></span><span class="shade"></span><span class="rn">03</span><span class="rt"><strong>Crafts and gifts</strong><span>Handmade gifts for the people I love. Moving in soon.</span></span></button>
+      </div>
+    </section>
+
     <!-- Contact -->
     <section class="section contact" id="contact" aria-labelledby="contactTitle">
-      <p class="label" data-reveal><span class="num">05</span> Contact</p>
-      <h2 id="contactTitle" class="display contact__title" data-split>Have something that should be <em>well made?</em></h2>
-      <p class="section__intro" data-reveal style="--d: 1">A project, an internship, or just a hello. I usually reply within a day or two.</p>
+      <h2 id="contactTitle" class="display contact__title">Have something that should be <em>well made?</em></h2>
+      <p class="section__intro">A project, an internship, or just a hello. I usually reply within a day or two.</p>
 
       <ul class="contact__links" data-contact-links>
-        <li data-reveal><a href="https://github.com/jnk-nini" target="_blank" rel="noopener"><span class="label">GitHub</span><span class="contact__value">github.com/jnk-nini</span><span class="arrow" aria-hidden="true">↗</span></a></li>
+        <li><a href="https://github.com/jnk-nini" target="_blank" rel="noopener"><span class="label">GitHub</span><span class="contact__value">github.com/jnk-nini</span><span class="arrow"><svg class="ico" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M4.5 11.5l7-7M5.5 4.5h6v6" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></li>
       </ul>
     </section>
   </main>
@@ -254,7 +328,7 @@
         no framework, no build step.
         <a href="https://github.com/jnk-nini/Atelier-Nini" target="_blank" rel="noopener">Read the source</a>
       </p>
-      <p class="label footer__meta"><span>© 2026 Jenny Joy F. Latagan</span><a href="#top">Back to top ↑</a></p>
+      <p class="label footer__meta"><span>© 2026 Jenny Joy F. Latagan</span><a href="#top">Back to top <svg class="ico" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M8 13V3M3.5 7.5L8 3l4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></p>
     </div>
     <p class="footer__mark display" aria-hidden="true">Atelier <em>Nini</em></p>
   </footer>
