@@ -11,6 +11,8 @@ export function initTheme({ reducedMotion }) {
   const apply = (theme) => {
     root.dataset.theme = theme;
     button?.setAttribute('aria-pressed', String(theme === 'dark'));
+    // The 3D pieces relight themselves when this fires.
+    root.dispatchEvent(new CustomEvent('themechange', { detail: theme }));
   };
 
   const toggle = () => {
